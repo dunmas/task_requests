@@ -1,3 +1,6 @@
+from token import TOKEN
+
+
 class YaUploader:
     base_url = 'https://cloud-api.yandex.net/'
 
@@ -12,3 +15,11 @@ class YaUploader:
 
     def upload(self, file_path: str):
         pass
+
+
+if __name__ == '__main__':
+    path_to_file = ''
+    token = TOKEN
+    uploader = YaUploader(token)
+
+    uploader.upload(path_to_file)
