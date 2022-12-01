@@ -1,6 +1,6 @@
 import requests
 
-from token import TOKEN
+from settings import TOKEN
 
 
 class YaUploader:
@@ -24,13 +24,18 @@ class YaUploader:
         return response.json()['href']
 
     def upload(self, file_path: str):
-        uri = 'v1/disk/resources/upload'
+        # Будем класть файлы в корень диска (по заданию не обозначен желаемый путь), но можно и добавить
+        # дополнительным параметром.
+        path = '/'
+        upload_url = self._get_upload_link(path)
+        responce = requests.put(upload_url, data=open(file_path, 'rb'), headers=self._get_headers())
 
-
+        if responce.status_code == 201:
+            print('Готово!')
 
 
 if __name__ == '__main__':
-    path_to_file = ''
+    path_to_file = 'C:\\Users\\levaf\\Downloads\\6863625.jpg'
     token = TOKEN
     uploader = YaUploader(token)
 
