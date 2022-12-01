@@ -1,4 +1,5 @@
 import requests
+import os
 
 
 class YaUploader:
@@ -9,7 +10,7 @@ class YaUploader:
 
     def _get_headers(self):
         return {
-            'Content-Type': 'json',
+            'Content-Type': 'application/json',
             'Authorization': f'OAuth {self.token}'
         }
 
@@ -24,9 +25,10 @@ class YaUploader:
     def upload(self, file_path: str):
         # Будем класть файлы в корень диска (по заданию не обозначен желаемый путь), но можно и добавить
         # дополнительным параметром.
-        path = '/'
+        name = os.path.basename(file_path)
+        path = f'/{name}'
         upload_url = self._get_upload_link(path)
-        responce = requests.put(upload_url, data=open(file_path, 'rb'), headers=self._get_headers())
+        response = requests.put(upload_url, data=open(file_path, 'rb'), headers=self._get_headers())
 
-        if responce.status_code == 201:
+        if response.status_code == 201:
             print('Готово!')

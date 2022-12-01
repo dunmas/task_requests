@@ -1,4 +1,5 @@
 from superheroes import Superheroes
+from ya_uploader import YaUploader
 from settings import TOKEN
 
 if __name__ == '__main__':
