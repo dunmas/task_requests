@@ -1,3 +1,5 @@
+import requests
+
 from token import TOKEN
 
 
@@ -13,8 +15,18 @@ class YaUploader:
             'Authorization': f'OAuth {self.token}'
         }
 
+    def _get_upload_link(self, path):
+        uri = 'v1/disk/resources/upload'
+        request_url = self.base_url + uri
+        params = {'path': path, 'overwrite': True}
+        response = requests.get(request_url, headers=self._get_headers(), params=params)
+
+        return response.json()['href']
+
     def upload(self, file_path: str):
-        pass
+        uri = 'v1/disk/resources/upload'
+
+
 
 
 if __name__ == '__main__':
