@@ -1,7 +1,5 @@
 import requests
 
-from settings import TOKEN
-
 
 class YaUploader:
     base_url = 'https://cloud-api.yandex.net/'
@@ -32,11 +30,3 @@ class YaUploader:
 
         if responce.status_code == 201:
             print('Готово!')
-
-
-if __name__ == '__main__':
-    path_to_file = 'C:\\Users\\levaf\\Downloads\\6863625.jpg'
-    token = TOKEN
-    uploader = YaUploader(token)
-
-    uploader.upload(path_to_file)
