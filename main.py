@@ -1,8 +1,8 @@
 from superheroes import Superheroes
 from ya_uploader import YaUploader
 from stack_questions import get_tagged_questions_json
-import json
 from settings import TOKEN
+import json
 
 if __name__ == '__main__':
     # Задание 1
