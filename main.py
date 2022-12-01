@@ -1,5 +1,7 @@
 from superheroes import Superheroes
 from ya_uploader import YaUploader
+from stack_questions import get_tagged_questions_json
+import json
 from settings import TOKEN
 
 if __name__ == '__main__':
@@ -13,3 +15,9 @@ if __name__ == '__main__':
     uploader = YaUploader(token)
 
     uploader.upload(path_to_file)
+
+    # Задание 3
+    question_tag = 'Python'
+    questions_json = get_tagged_questions_json(question_tag)
+    # Проверяем вывод (закомментил для удобства просмотра предыдущих заданий)
+    #print(json.dumps(questions_json, indent=2))

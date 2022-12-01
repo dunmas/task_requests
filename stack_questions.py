@@ -2,12 +2,12 @@ from time import time
 import requests
 
 # Двухдневный промежуток
-TIME_GAP = 172,800
+TIME_GAP = 172800
 
 
-def get_tagged_questions(tag: str):
+def get_tagged_questions_json(tag: str):
     questions_link = 'https://api.stackexchange.com/2.3/questions'
-    today = time()
+    today = int(time())
     params = {
         'site': 'stackoverflow',
         'sort': 'activity',

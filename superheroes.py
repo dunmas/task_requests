@@ -34,5 +34,4 @@ class Superheroes:
         for count, hero in enumerate(buffer):
             print(f"#{count + 1} - {hero[1]} ({hero[0]} intelligence points)")
 
-
-
+        print()

@@ -25,6 +25,7 @@ class YaUploader:
     def upload(self, file_path: str):
         # Будем класть файлы в корень диска (по заданию не обозначен желаемый путь), но можно и добавить
         # дополнительным параметром.
+        print('Загружаю файл на диск...')
         name = os.path.basename(file_path)
         path = f'/{name}'
         upload_url = self._get_upload_link(path)
